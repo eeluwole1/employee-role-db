@@ -4,7 +4,8 @@ import dotenv from "dotenv";
 import setupSwagger from "./config/swagger";
 import corsOptions from "./config/cors";
 import { useExpressServer } from "routing-controllers";
-
+import { EmployeeController } from "./api/v1/controllers/employeeController";
+import { RoleController } from "./api/v1/controllers/roleController";
 
 const app: Express = express();
 
@@ -15,7 +16,7 @@ app.use(morgan("combined"));
 // setup the controllers and use the /api/v1 prefix for the routes
 useExpressServer(app, {
   routePrefix: "/api/v1",
-  controllers: [],
+  controllers: [EmployeeController, RoleController],
   cors: corsOptions,
   defaultErrorHandler: false,
 });

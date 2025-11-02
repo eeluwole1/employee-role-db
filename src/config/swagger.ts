@@ -10,7 +10,7 @@ const setupSwagger = (app: Express): void => {
     { routePrefix: "/api/v1" },
     {
       info: {
-        title: "Recipe Tracker DB",
+        title: "Employee Role DB",
         version: "1.0.0",
         description: "API docs",
       },
