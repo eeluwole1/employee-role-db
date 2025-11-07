@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: employee-role-pg
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: passzoe
+      POSTGRES_DB: employeeroledb
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

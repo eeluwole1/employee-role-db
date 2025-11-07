@@ -37,7 +37,6 @@ export class EmployeeController {
     return res.status(200).json(successResponse(updated, "Employee updated successfully"));
   }
 
-  // only if frontend needs it
   @Delete("/employees/delete/:id")
   async delete(@Param("id") id: string, @Res() res: Response) {
     await EmployeeService.deleteEmployee(id);
