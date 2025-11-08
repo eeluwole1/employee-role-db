@@ -7,7 +7,6 @@ export function formatEmployee(
   return {
     id: employee.id,
     name: employee.name,
-    email: employee.email,
     department: employee.department,
     roleId: employee.roleId ?? null,
     roleName: employee.role ? employee.role.name : null,

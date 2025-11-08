@@ -11,8 +11,7 @@ export const fetchAllEmployees = async (): Promise<EmployeeDto[]> => {
 
   return data.map((emp): EmployeeDto => ({
     id: emp.id,
-    name: emp.name,
-    email: emp.email,    
+    name: emp.name,   
     department: emp.department,
     roleId: emp.roleId ?? null,
     roleName: emp.role ? emp.role.name : null,
@@ -33,8 +32,7 @@ export const getEmployeeById = async (id: string): Promise<EmployeeDto | null> =
 
   return {
     id: emp.id,
-    name: emp.name,
-    email: emp.email,      
+    name: emp.name,      
     department: emp.department,
     roleId: emp.roleId ?? null,
     roleName: emp.role ? emp.role.name : null,
@@ -48,8 +46,7 @@ export const createEmployee = async (dto: EmployeeDto): Promise<EmployeeDto> => 
 
   const emp = await prisma.employee.create({
     data: {
-      name: data.name,
-      email: data.email,     
+      name: data.name,     
       department: data.department,
       roleId: data.roleId || null,
     },
@@ -58,8 +55,7 @@ export const createEmployee = async (dto: EmployeeDto): Promise<EmployeeDto> => 
 
   return {
     id: emp.id,
-    name: emp.name,
-    email: emp.email,  
+    name: emp.name,  
     department: emp.department,
     roleId: emp.roleId ?? null,
     roleName: emp.role ? emp.role.name : null,
@@ -75,7 +71,6 @@ export const updateEmployee = async (id: string, dto: EmployeeDto): Promise<Empl
     where: { id },
     data: {
       name: data.name,
-      email: data.email,  
       department: data.department,
       roleId: data.roleId || null,
     },
@@ -85,7 +80,6 @@ export const updateEmployee = async (id: string, dto: EmployeeDto): Promise<Empl
   return {
     id: emp.id,
     name: emp.name,
-    email: emp.email,
     department: emp.department,
     roleId: emp.roleId ?? null,
     roleName: emp.role ? emp.role.name : null,

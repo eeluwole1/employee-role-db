@@ -13,7 +13,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("combined"));
 
-// setup the controllers and use the /api/v1 prefix for the routes
 useExpressServer(app, {
   routePrefix: "/api/v1",
   controllers: [EmployeeController, RoleController],

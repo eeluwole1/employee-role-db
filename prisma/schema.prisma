@@ -21,7 +21,6 @@ model Role {
 model Employee {
   id        String  @id @default(uuid())
   name      String
-  email     String
   department String
   roleId    String?
   role      Role?   @relation(fields: [roleId], references: [id])
