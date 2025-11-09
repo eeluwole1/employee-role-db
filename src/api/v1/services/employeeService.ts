@@ -88,6 +88,3 @@ export const updateEmployee = async (id: string, dto: EmployeeDto): Promise<Empl
   };
 };
 
-export const deleteEmployee = async (id: string): Promise<void> => {
-  await prisma.employee.delete({ where: { id } });
-};
