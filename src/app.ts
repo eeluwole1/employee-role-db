@@ -13,6 +13,7 @@ const app: Express = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("combined"));
+app.use(clerkMiddleware());
 
 useExpressServer(app, {
   routePrefix: "/api/v1",
