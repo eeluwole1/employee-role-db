@@ -6,6 +6,7 @@ import corsOptions from "./config/cors";
 import { useExpressServer } from "routing-controllers";
 import { EmployeeController } from "./api/v1/controllers/employeeController";
 import { RoleController } from "./api/v1/controllers/roleController";
+import { clerkMiddleware } from '@clerk/express'
 
 const app: Express = express();
 

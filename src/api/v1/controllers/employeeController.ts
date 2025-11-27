@@ -5,6 +5,7 @@ import * as EmployeeService from "../services/employeeService";
 import { successResponse, errorResponse } from "../models/responseModel";
 import { validateRequest } from "../middleware/validate";
 import { employeeSchema } from "../validations/employeeValidation";
+import { requireAuth } from "@clerk/express";
 
 @Controller()
 export class EmployeeController {
@@ -24,7 +25,7 @@ export class EmployeeController {
   }
 
   @Post("/employees/create")
-  @UseBefore(validateRequest(employeeSchema))
+  @UseBefore(requireAuth())
   async create(@Req() req: Request, @Res() res: Response) {
     const newEmployee = await EmployeeService.createEmployee(req.body);
     return res.status(201).json(successResponse(newEmployee, "Employee created successfully"));

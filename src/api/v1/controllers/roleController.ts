@@ -5,6 +5,7 @@ import * as RoleService from "../services/roleService";
 import { successResponse, errorResponse } from "../models/responseModel";
 import { validateRequest } from "../middleware/validate";
 import { roleSchema } from "../validations/roleValidation";
+import { requireAuth } from "@clerk/express";
 
 @Controller()
 export class RoleController {
@@ -24,7 +25,7 @@ export class RoleController {
   }
 
   @Post("/roles/create")
-  @UseBefore(validateRequest(roleSchema))
+  @UseBefore(requireAuth())
   async create(@Req() req: Request, @Res() res: Response) {
     const newRole = await RoleService.createRole(req.body);
     return res.status(201).json(successResponse(newRole, "Role created successfully"));
